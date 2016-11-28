@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_girl1"
+        android:checkable="true"
+        android:icon="@drawable/icon_gril"
+        android:title="妹纸1" />
+    <item
+        android:id="@+id/menu_girl2"
+        android:checkable="true"
+        android:icon="@drawable/icon_gril"
+        android:title="妹纸2" />
+    <item
+        android:id="@+id/menu_girl3"
+        android:checkable="true"
+        android:icon="@drawable/icon_gril"
+        android:title="妹纸3" />
+</menu>
