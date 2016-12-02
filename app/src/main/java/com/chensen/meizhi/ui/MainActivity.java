@@ -9,11 +9,20 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 
+import com.bumptech.glide.gifdecoder.GifDecoder;
+import com.chensen.meizhi.R;
+import com.chensen.meizhi.bean.GirlBean;
 import com.chensen.meizhi.common.base.BaseActivity;
 import com.chensen.meizhi.ui.fragment.GirlFragment;
-import com.chensen.meizhi.R;
 
 import butterknife.BindView;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 public class MainActivity extends BaseActivity {
 
@@ -36,7 +45,6 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initView();
         initData();
-
     }
 
 
@@ -103,4 +111,6 @@ public class MainActivity extends BaseActivity {
         builder.show();
 
     }
+
+
 }

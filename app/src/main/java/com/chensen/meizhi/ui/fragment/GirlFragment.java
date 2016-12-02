@@ -1,7 +1,10 @@
 package com.chensen.meizhi.ui.fragment;
 
+import android.app.ActivityOptions;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -13,10 +16,13 @@ import android.view.View;
 import com.chensen.meizhi.R;
 import com.chensen.meizhi.adapter.AdapterGirl;
 import com.chensen.meizhi.bean.GirlBean;
+import com.chensen.meizhi.common.Constants;
 import com.chensen.meizhi.common.base.BaseFragment;
 import com.chensen.meizhi.common.utils.SnackBarUtil;
 import com.chensen.meizhi.mvp.contact.GirlContact;
 import com.chensen.meizhi.mvp.present.GirlPresent;
+import com.chensen.meizhi.ui.GirlDetailActivity;
+import com.chensen.meizhi.ui.MainActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +85,16 @@ public class GirlFragment extends BaseFragment implements GirlContact.View {
         adapterGirl.setOnItemClickListener(new AdapterGirl.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
+                Intent intent = new Intent(mContext, GirlDetailActivity.class);
+                intent.putExtra(Constants.GIRL_URL, mList.get(position).getUrl());
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation((MainActivity) mContext, view, "shareview");
+                    startActivity(intent, options.toBundle());
+                } else {
+                    startActivity(intent);
+                }
+
 
             }
         });
